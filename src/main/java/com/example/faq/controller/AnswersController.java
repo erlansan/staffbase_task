@@ -1,7 +1,7 @@
 package com.example.faq.controller;
 
-import com.example.faq.datasource.FaqDataSource;
 import com.example.faq.model.Answer;
+import com.example.faq.service.FaqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,22 +13,22 @@ import java.util.Collection;
 public class AnswersController extends ExceptionHandlingController {
 
     @Autowired
-    private FaqDataSource faqDataSource;
+    private FaqService faqService;
 
     @GetMapping()
     Collection<Answer> getAnswers() {
-        return faqDataSource.getAnswers();
+        return faqService.getAnswers();
     }
 
     @GetMapping("/{questionId}")
     Answer getAnswer(@PathVariable int questionId) {
-        return faqDataSource.getAnswer(questionId);
+        return faqService.getAnswer(questionId);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     Answer createAnswer(@RequestBody Answer answer) {
-        return faqDataSource.createAnswer(answer);
+        return faqService.addAnswer(answer);
     }
 
 }

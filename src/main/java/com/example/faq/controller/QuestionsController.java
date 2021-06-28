@@ -1,27 +1,29 @@
 package com.example.faq.controller;
 
-import com.example.faq.model.Answer;
+import com.example.faq.datasource.FaqDataSource;
 import com.example.faq.model.Question;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.Collections;
 
-@RestController("api/questions")
+@RestController
+@RequestMapping("api/questions")
 public class QuestionsController {
+
+    @Autowired
+    private FaqDataSource faqDataSource;
 
     @GetMapping
     Collection<Question> getQuestions() {
-        //TODO
-        return Collections.emptyList();
+        return faqDataSource.getQuestions();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     Question createQuestion(@RequestBody Question question) {
-        //TODO
-        return question;
+        return faqDataSource.createQuestion(question);
     }
 
 }

@@ -20,9 +20,9 @@ public class AnswersController extends ExceptionHandlingController {
         return faqService.getAnswers();
     }
 
-    @GetMapping("/{questionId}")
-    Answer getAnswer(@PathVariable int questionId) {
-        return faqService.getAnswer(questionId);
+    @GetMapping("/{answerId}")
+    Answer getAnswer(@PathVariable int answerId) {
+        return faqService.getAnswer(answerId);
     }
 
     @PostMapping

@@ -55,10 +55,10 @@ public class MockFaqDataSource implements FaqDataSource {
     }
 
     @Override
-    public Answer getAnswer(int questionId) {
-        Optional<Answer> foundAnswer = answers.stream().filter(answer -> answer.getId() == questionId).findFirst();
+    public Answer getAnswer(int answerId) {
+        Optional<Answer> foundAnswer = answers.stream().filter(answer -> answer.getId() == answerId).findFirst();
         if(foundAnswer.isEmpty()) {
-            throw new NoSuchElementException("Answer with this question id: " + questionId + " doesn't exists");
+            throw new NoSuchElementException("Answer with this id: " + answerId + " doesn't exists");
         }
         return foundAnswer.get();
     }

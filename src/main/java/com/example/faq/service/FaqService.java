@@ -35,7 +35,7 @@ public class FaqService {
         return faqDataSource.createAnswer(answer);
     }
 
-    public Answer getAnswer(int questionId) {
-        return faqDataSource.getAnswer(questionId);
+    public Answer getAnswer(int answerId) {
+        return faqDataSource.getAnswer(answerId);
     }
 }

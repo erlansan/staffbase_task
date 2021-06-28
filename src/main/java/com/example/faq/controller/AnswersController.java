@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/answers")
-public class AnswersController {
+public class AnswersController extends ExceptionHandlingController {
 
     @Autowired
     private FaqDataSource faqDataSource;
